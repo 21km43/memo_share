@@ -1,5 +1,7 @@
 # 操舵差分メモ
 
+元のコードのバックアップを取り、次の操作を実行
+
 1. loop関数からUDPの送信部分を「削除」
 
 ```cpp
@@ -60,7 +62,6 @@ void udp_thread_func(void *pvParameters);
 4. ソースコードの末尾に次を「追加」
 
 ```cpp
-#ifdef ARDUINO_UNOR4_WIFI
 void loop_thread_func(void *pvParameters)
 {
     for (;;)
@@ -98,5 +99,4 @@ void udp_thread_func(void *pvParameters)
         delay(100);
     }
 }
-#endif
 ```
