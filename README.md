@@ -67,7 +67,7 @@ void loop_thread_func(void *pvParameters)
     for (;;)
     {
         loop();
-        taskYIELD();
+        delay(10);
     }
 }
 
