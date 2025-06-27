@@ -49,6 +49,10 @@ void udp_thread_func(void *pvParameters);
 3. setup関数の「末尾に」次を「追加」
 
 ```cpp
+void setup() {
+...
+↓ここから
+
     auto const rc_loop = xTaskCreate(
         loop_thread_func, static_cast<const char *>("Loop Thread"), 4096, nullptr, 2, &loop_task);
     auto const rc_udp = xTaskCreate(
@@ -57,6 +61,8 @@ void udp_thread_func(void *pvParameters);
     vTaskStartScheduler();
     for (;;)
         ;
+↑ここまでを追加
+}
 ```
 
 4. ソースコードの末尾に次を「追加」
