@@ -53,12 +53,10 @@ void setup() {
 ...
 // ↓ここから
 
-    auto const rc_loop = xTaskCreate(
-        loop_thread_func, static_cast<const char *>("Loop Thread"), 4096, nullptr, 2, &loop_task);
-    auto const rc_udp = xTaskCreate(
-        udp_thread_func, static_cast<const char *>("UDP Thread"), 4096, nullptr, 1, &udp_task);
-
+    xTaskCreate(loop_thread_func, static_cast<const char *>("Loop Thread"), 4096, nullptr, 2, &loop_task);
+    xTaskCreate(udp_thread_func, static_cast<const char *>("UDP Thread"), 4096, nullptr, 1, &udp_task);
     vTaskStartScheduler();
+
     for (;;)
         ;
 // ↑ここまでを追加
