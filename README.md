@@ -51,7 +51,7 @@ void udp_thread_func(void *pvParameters);
 ```cpp
 void setup() {
 ...
-↓ここから
+// ↓ここから
 
     auto const rc_loop = xTaskCreate(
         loop_thread_func, static_cast<const char *>("Loop Thread"), 4096, nullptr, 2, &loop_task);
@@ -61,7 +61,7 @@ void setup() {
     vTaskStartScheduler();
     for (;;)
         ;
-↑ここまでを追加
+// ↑ここまでを追加
 }
 ```
 
